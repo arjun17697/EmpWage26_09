@@ -1,0 +1,93 @@
+package uc9;
+
+public class uc9 {
+	public static final int PART = 1;
+	public static final int FULL = 2;
+
+	private final int rate;
+	private final int work;
+	private final int maxhrs;
+	private final String company;
+	private int totalEmpWage;
+
+	public uc9(String company, int rate, int work, int maxhrs) {
+		this.company = company;
+		this.rate = rate;
+		this.maxhrs = maxhrs;
+		this.work = work;
+
+	}
+
+	public int empWage() {
+		// variables
+		int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
+		// Computation
+		while (totalEmpHrs <= maxhrs && totalWorkingDays < work) {
+			totalWorkingDays++;
+			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+			switch (empCheck) {
+			case PART:
+				empHrs = 4;
+				break;
+			case FULL:
+				empHrs = 8;
+				break;
+			default:
+				empHrs = 0;
+
+			}
+			totalEmpHrs += empHrs;
+			System.out.println("Number of Days:" + totalWorkingDays + "Emp Hours" + empHrs + "totalEmpWage:" + totalEmpWage );
+		}
+		return totalEmpWage =rate* empHrs;
+		
+
+	}
+
+	//@Override
+	//public String toString() {
+	//	return "Total Employee Wage for the company:" + company + " is: " + totalEmpWage;
+	//}
+
+	public static void main(String[] args) {
+
+		uc9 lemon = new uc9("Lemon", 20, 2, 10);
+		uc9 armaan = new uc9("Armaan", 10, 4, 20);
+		lemon.empWage();
+		System.out.println(lemon);
+		armaan.empWage();
+		System.out.println(armaan);
+	}
+
+}
+
+/*class Response {
+	private String company;
+	int rate;
+	int work;
+	int maxhrs;
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	public int getRate() {
+		return rate;
+	}
+	public void setRate(int rate) {
+		this.rate = rate;
+	}
+	public int getWork() {
+		return work;
+	}
+	public void setWork(int work) {
+		this.work = work;
+	}
+	public int getMaxhrs() {
+		return maxhrs;
+	}
+	public void setMaxhrs(int maxhrs) {
+		this.maxhrs = maxhrs;
+	}
+}*/
